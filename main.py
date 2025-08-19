@@ -1,7 +1,15 @@
+import sys
 from stats import count_num_words
 from stats import count_chars
 from stats import sort_by_num
 from stats import sort_chars
+
+def check_args():
+    if len(sys.argv) == 2:
+        return
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
 def get_book_text(filepath):
     with open(filepath) as f:
@@ -10,7 +18,8 @@ def get_book_text(filepath):
 
     
 def main():
-    text = (get_book_text("./books/frankenstein.txt"))
+    check_args()
+    text = (get_book_text(sys.argv[1]))
     count = count_num_words(text)
     frequency = count_chars(text)
     frequency = sort_chars(frequency)
