@@ -19,12 +19,13 @@ def get_book_text(filepath):
     
 def main():
     check_args()
-    text = (get_book_text(sys.argv[1]))
+    book_path = sys.argv[1]
+    text = (get_book_text(book_path))
     count = count_num_words(text)
     frequency = count_chars(text)
     frequency = sort_chars(frequency)
     print ("============ BOOKBOT ============")
-    print (f"Analysing book found at books/frankenstein.txt")
+    print (f"Analysing book found at {book_path}")
     print ("============ Word Count ============")
     print(f"Found {count} total words in the document")
     print ("============ Character Count ============")
