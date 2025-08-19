@@ -12,3 +12,13 @@ def count_chars(input_text):
         else:
             frequency[char] = 1
     return frequency
+
+def sort_by_num(item):
+    return item["num"]
+
+def sort_chars(unsorted):
+    sorted_list = []
+    for k, v in unsorted.items():
+        sorted_list.append({"char":k, "num":v})
+    sorted_list.sort(reverse=True, key=sort_by_num)
+    return sorted_list
